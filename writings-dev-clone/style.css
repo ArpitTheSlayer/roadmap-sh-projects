@@ -1,0 +1,275 @@
+:root {
+  /* Typography */
+  --primary-font: "Recursive", sans-serif;
+  --secondary-font: "Poppins", sans-serif;
+
+  /* Colors */
+  --bg-color: #232830;
+  --fg-color: #ffffff;
+  --primary-color: #ff9696;
+  --secondary-color: #b3b3b3;
+  --tertiary-color: #6bbaff;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--fg-color);
+  font-family: var(--secondary-font);
+  margin: 2rem 8rem;
+  overflow-x: hidden;
+}
+
+header {
+  nav {
+    display: flex;
+    justify-content: space-between;
+
+    h1 {
+      font-weight: normal;
+      font-size: 1.5rem;
+    }
+
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        font-size: 1.2rem;
+      }
+
+      a:hover,
+      a:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .slogan-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-block: 2rem;
+
+    img {
+      width: 6rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: normal;
+      font-family: var(--primary-font);
+      font-style: italic;
+      margin-block: 1rem;
+      color: var(--primary-color);
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+
+  .links-container {
+    display: flex;
+    gap: 1rem;
+    position: relative;
+    margin-bottom: 4rem;
+    padding: 1rem;
+
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+
+      img {
+        width: 0.8rem;
+      }
+    }
+
+    button:hover,
+    button:focus {
+      box-shadow: 0 0 0 0.3rem var(--bg-color),
+        0 0 0 0.5rem var(--primary-color);
+    }
+  }
+}
+
+.links {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  font-family: var(--primary-font);
+  font-style: italic;
+
+  a {
+    text-decoration: none;
+    color: var(--secondary-color);
+  }
+}
+
+.links a:hover,
+.links a:focus {
+  color: var(--primary-color);
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(20rem, 1fr));
+  gap: 1rem;
+
+  .card {
+    padding: 1rem;
+    background-color: var(--fg-color);
+    color: var(--bg-color);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .card-header {
+      margin-bottom: 1rem;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .card-body {
+      p {
+        margin-block: 1rem;
+      }
+    }
+
+    .card-footer {
+      span {
+        margin-inline: 0.5rem;
+      }
+    }
+  }
+}
+
+hr {
+  width: 100vw;
+  border: none;
+  border-top: 1px solid var(--secondary-color);
+  opacity: 0.2;
+  margin: 1rem -8rem;
+}
+
+footer {
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin: 5rem 0;
+
+    a {
+      padding: 1rem;
+    }
+
+    .active {
+      color: var(--primary-color);
+      position: relative;
+      border-top: 3px solid var(--primary-color);
+    }
+  }
+
+  .credits {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+
+    .contact-info,
+    .site-info {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+
+      a {
+        text-decoration: none;
+        background-color: var(--tertiary-color);
+        color: var(--bg-color);
+        border-radius: 0.2rem;
+        padding: 0.5rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    .contact-info {
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+
+        img {
+          width: 1rem;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 75rem) {
+  main {
+    grid-template-columns: repeat(2, minmax(20rem, 1fr));
+  }
+}
+
+@media (max-width: 56.25rem) {
+  body {
+    margin: 2rem;
+  }
+
+  hr {
+    margin: 1rem -2rem;
+  }
+
+  .links-container {
+    overflow-x: scroll;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 43.75rem) {
+  header {
+    nav {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+
+  footer {
+    .pagination {
+      ul {
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+    }
+
+    .credits {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+}
